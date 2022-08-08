@@ -1,0 +1,30 @@
+
+
+
+[
+  {
+    "_id": "61af7d23743c38a934ecfc1c",
+    "name": "Le Développement Web de A à Z.",
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "61af7d23743c38a934ecfc1d",
+    "name": "Les Data Sciences de A à Z",
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "61af7d23743c38a934ecfc1e",
+    "name": "Développer Votre Première Application avec Angular ",
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  }
+ 
+]
