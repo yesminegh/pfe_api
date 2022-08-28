@@ -18,9 +18,6 @@ import { serverUrl } from 'config/vars';
 
 import apiWrapper from 'crud/apiWrapper';
 
-import categoryModel from 'models/category.model';
-
-import trainingModel from 'models/training.model';
 
 const createtrainingValidation = {
   name: joi.string().min(1).max(50).required(),
@@ -48,15 +45,17 @@ export default {
   createTraining: create(
     Training,
     {
-      name: { type: GraphQLString, required: false },
+      name: { type: GraphQLString, required: false},
       price: { type: GraphQLString, required: true },
       idCategory: { type: GraphQLID, required: false },
-      idSubCategories: { type: new GraphQLList(GraphQLID), required: false },
+      idSubCategories: { type:  GraphQLID, required: false },
       membersNumber: { type: GraphQLInt, required: true },
       description: { type: GraphQLString, required: false },
       image: { type: new GraphQLList(GraphQLUpload), required: false },
       dateStart: { type: GraphQLString, required: true },
       dateEnd: { type: GraphQLString, required: true },
+      idTrainer: { type:  GraphQLID, required: false },
+
     },
     TrainingType,
     {
@@ -64,7 +63,6 @@ export default {
       authorizationRoles: [],
       pre: async (args, req) => {
         var { name, image, ...rest } = args;
-        let idCategory = await categoryModel.findById(rest.idCategory);
 
         let productfold = `${name}`;
         fs.mkdir(path.join(__dirname, `../../uploads/${productfold}`), { recursive: true }, (err) => {
@@ -85,23 +83,18 @@ export default {
                 );
 
                 await stream.pipe(fs.createWriteStream(pathName));
-                return `${productfold}/${filename.split(' ').join('_')}`;
+                return `${serverUrl}/${productfold}/${filename.split(' ').join('_')}`;
               }
             }),
           ).then((res) => {
-            return { ...rest, idCategory, image: res };
+            return { ...rest, image: res ,name};
           });
         }
       },
 
-      post: ({ result: { image, _id, name, idCategory, price } }) => {
-        image = image.map((file) => {
-          return `${serverUrl}/uploads/${file}`;
-        });
-
-        return { id: _id, image: image, name, price, idCategory };
-      },
+    
     },
+    
   ),
 
   updateTraining: update(
@@ -112,14 +105,14 @@ export default {
       price: GraphQLString,
       idCategory: GraphQLID,
       idSubCategories: GraphQLID,
+      idTrainer: GraphQLID,
       membersNumber: GraphQLInt,
-      discount: GraphQLString,
       description: GraphQLString,
       image: new GraphQLList(GraphQLUpload),
     },
     TrainingType,
     {
-      authorizationRoles: [Role.ADMIN],
+      authorizationRoles: [],
     },
   ),
   removeTraining: remove(Training, { authorizationRoles: [Role.ADMIN] }),

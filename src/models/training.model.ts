@@ -1,6 +1,8 @@
-import mongoose, { Document, Model, Schema } from 'mongoose';
-import { category } from './category.model';
-import { SubCategory } from './subCategory.model';
+import mongoose, { Document, Model, Schema } from "mongoose";
+import { category } from "./category.model";
+import { SubCategory } from "./subCategory.model";
+import { Trainer } from "./trainer.model";
+
 export interface image {
   first: boolean;
   file: string;
@@ -14,7 +16,7 @@ export interface Training {
   membersNumber: number;
   description?: string;
   image: string[];
-  idTrainer: string;
+  idTrainer: Trainer;
   dateStart: Date;
   dateEnd: Date;
 }
@@ -38,12 +40,12 @@ const trainingSchema = new mongoose.Schema<trainingDocument, trainingModel>(
 
     idCategory: {
       type: Schema.Types.ObjectId,
-      ref: 'Category',
+      ref: "Category",
       required: false,
     },
     idSubCategories: {
       type: Schema.Types.ObjectId,
-      ref: 'SubCategory',
+      ref: "SubCategory",
     },
 
     membersNumber: {
@@ -64,7 +66,7 @@ const trainingSchema = new mongoose.Schema<trainingDocument, trainingModel>(
     },
     idTrainer: {
       type: Schema.Types.ObjectId,
-      ref: 'Trainer',
+      ref: "Trainer",
       required: false,
     },
     dateStart: {
@@ -78,6 +80,6 @@ const trainingSchema = new mongoose.Schema<trainingDocument, trainingModel>(
   },
   {
     timestamps: true,
-  },
+  }
 );
-export default mongoose.model('Training', trainingSchema);
+export default mongoose.model("Training", trainingSchema);

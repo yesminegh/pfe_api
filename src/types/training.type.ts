@@ -18,20 +18,15 @@ export const TrainingType = new GraphQLObjectType({
     id: { type: GraphQLID },
     name: { type: GraphQLString },
     price: { type: GraphQLString },
-    priceAfterDiscount: { type: GraphQLString },
     idCategory: { type: CategoryType },
-    idSubCategories: { type: new GraphQLList(SubCategoryType) },
+    idSubCategories: { type: SubCategoryType},
     membersNumber: { type: GraphQLInt },
-    discount: { type: GraphQLString },
     description: { type: GraphQLString },
-    image: { type: GraphQLUpload },
+    image: { type: new GraphQLList(GraphQLString) },
     idTrainer: { type: TrainerType },
+    dateStart: { type: GraphQLString },
+    dateEnd: { type: GraphQLString },
+
   },
 });
-export const ImageType = new GraphQLInputObjectType({
-  name: 'Image',
-  fields: {
-    first: { type: GraphQLBoolean },
-    file: { type: GraphQLUpload },
-  },
-});
+

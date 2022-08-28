@@ -23,7 +23,7 @@ export default {
   subCategorys: list(SubCategory, SubCategoryType, {
     authorizationRoles: [],
     args: {
-      idCategory: { type: GraphQLList(GraphQLID) },
+      idCategory: { type: GraphQLID },
     },
     pre: getCategorysSearchArguments as any,
   }),
