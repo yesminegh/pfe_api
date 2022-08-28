@@ -1,19 +1,28 @@
-import create from 'crud/create';
-import remove from 'crud/remove';
-import { GraphQLID } from 'graphql';
-import trainingParticipation from 'models/trainingParticipation.model';
-import { TrainingParticipationType } from 'types/traininParticipation.type';
+import apiWrapper from "crud/apiWrapper";
+import remove from "crud/remove";
+import { GraphQLID } from "graphql";
+import trainingParticipation from "models/trainingParticipation.model";
+import participationService from "services/participation.service";
+import {
+  clientInfoType,
+  TrainingParticipationType,
+} from "types/traininParticipation.type";
 
 export default {
-  createTrainingParticipation: create(
-    trainingParticipation,
-    {
-      idTraining: { type: GraphQLID, required: true },
-      idClient: { type: GraphQLID, required: true },
+  createTrainingParticipation: apiWrapper(
+    async (args, request) => {
+      await participationService.createParticipation(args, args.clientInfo);
     },
     TrainingParticipationType,
-    { validateSchema: {}, authorizationRoles: [] },
+    {
+      idTraining: { type: GraphQLID, required: false },
+      idClient: { type: GraphQLID, required: false },
+      clientInfo: { type: clientInfoType, required: false },
+    },
+    {}
   ),
 
-  removeTrainingParticipation: remove(trainingParticipation, { authorizationRoles: [] }),
+  removeTrainingParticipation: remove(trainingParticipation, {
+    authorizationRoles: [],
+  }),
 };

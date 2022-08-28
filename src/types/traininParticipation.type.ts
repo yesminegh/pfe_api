@@ -1,17 +1,34 @@
-import { GraphQLID, GraphQLObjectType, GraphQLInputObjectType } from 'graphql';
-import { ClientType } from './client.type';
+import {
+  GraphQLID,
+  GraphQLObjectType,
+  GraphQLInputObjectType,
+  GraphQLString,
+  GraphQLBoolean,
+} from "graphql";
+import { ClientType } from "./client.type";
 
 export const TrainingParticipationType = new GraphQLObjectType({
-  name: 'TraininParticipation',
+  name: "TraininParticipation",
   fields: {
-    id: { type: GraphQLID },
+    valid: { type: GraphQLBoolean },
+    idTraining: { type: GraphQLID },
     idClient: { type: ClientType },
   },
 });
 export const TrainingParticipationInput = new GraphQLInputObjectType({
-  name: 'TraininParticipationInput',
+  name: "TraininParticipationInput",
   fields: {
-    id: { type: GraphQLID },
+    idTraining: { type: GraphQLID },
     idClient: { type: GraphQLID },
+  },
+});
+
+export const clientInfoType = new GraphQLInputObjectType({
+  name: "clientInfo",
+  fields: {
+    fullName: { type: GraphQLString },
+    telephone: { type: GraphQLString },
+    email: { type: GraphQLString },
+    totalAmountPaid: { type: GraphQLString },
   },
 });
