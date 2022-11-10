@@ -1,4 +1,4 @@
-import mongoose, { Schema, Model, Document } from 'mongoose';
+import mongoose, { Schema, Model, Document } from "mongoose";
 
 export interface TrainingParticipation {
   idTraining: Schema.Types.ObjectId;
@@ -6,14 +6,23 @@ export interface TrainingParticipation {
   valid: boolean;
 }
 
-export interface TrainingParticipationDocument extends Document, TrainingParticipation {}
+export interface TrainingParticipationDocument
+  extends Document,
+    TrainingParticipation {}
 
 export type TrainingParticipationModel = Model<TrainingParticipationDocument>;
 
-const trainingParticipationSchema = new Schema<TrainingParticipationDocument, TrainingParticipationModel>(
+const trainingParticipationSchema = new Schema<
+  TrainingParticipationDocument,
+  TrainingParticipationModel
+>(
   {
-    idTraining: { type: Schema.Types.ObjectId, required: true, ref: 'Training' },
-    idClient: { type: Schema.Types.ObjectId, required: true, ref: 'Client' },
+    idTraining: {
+      type: Schema.Types.ObjectId,
+      required: true,
+      ref: "Training",
+    },
+    idClient: { type: Schema.Types.ObjectId, required: true, ref: "Client" },
     valid: {
       type: Boolean,
       default: false,
@@ -21,7 +30,10 @@ const trainingParticipationSchema = new Schema<TrainingParticipationDocument, Tr
   },
   {
     timestamps: true,
-  },
+  }
 );
 
-export default mongoose.model('TrainingParticipation', trainingParticipationSchema);
+export default mongoose.model(
+  "TrainingParticipation",
+  trainingParticipationSchema
+);

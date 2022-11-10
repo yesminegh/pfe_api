@@ -1,0 +1,60 @@
+[
+  {
+    "fullName": "Salima Tounsi",
+    "availablity": true,
+    "__v": 0,
+    "email": "salima.tounsi@gmail.com",
+    "speciality": "61af7d23743c38a934ecfc1e",
+    "telephone": "50000000"
+  },
+
+  {
+    "fullName": "Salim Maala",
+    "availablity": true,
+    "__v": 0,
+    "email": "Salim.maala@gmail.com",
+    "speciality": "61af7d23743c38a934ecfc1e",
+    "telephone": "22000000"
+  },
+  {
+    "_id": "6343f2553f085531136ba6b0",
+    "fullName": "Khouloud Jardak",
+    "availablity": true,
+    "__v": 0,
+    "email": "kouloud.jardak@gmail.com",
+    "speciality": "61af7d23743c38a934ecfc1e",
+    "telephone": "90100100"
+  },
+  {
+    "fullName": "Ali Ben Sallah",
+    "availablity": true,
+    "__v": 0,
+    "email": "ali.bensalah@gmail.com",
+    "speciality": "61af7d23743c38a934ecfc1e",
+    "telephone": "23400000"
+  },
+  {
+    "fullName": "Rym Aloui",
+    "availablity": true,
+    "__v": 0,
+    "email": "rym.aloui@gmail.com",
+    "speciality": "6343f2553f085531136ba6aa",
+    "telephone": "99555654"
+  },
+  {
+    "fullName": "Nesrine Ben ali",
+    "availablity": true,
+    "__v": 0,
+    "email": "nesrine@gmail.com",
+    "speciality": "6343f2553f085531136ba6aa",
+    "telephone": "23456677"
+  },
+  {
+    "fullName": "Mohamed Mahdi",
+    "availablity": true,
+    "__v": 0,
+    "email": "mohamed.mahdi@gmail.com",
+    "speciality": "6343f2553f085531136ba6aa",
+    "telephone": "55677677"
+  }
+]

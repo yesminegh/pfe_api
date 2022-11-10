@@ -1,21 +1,27 @@
-import { accessSecret, clientUrl } from './../config/vars';
-import bcrypt from 'bcryptjs';
-import apiWrapper from 'crud/apiWrapper';
-import create from 'crud/create';
-import update from 'crud/update';
-import { GraphQLBoolean, GraphQLError, GraphQLID, GraphQLNonNull, GraphQLString } from 'graphql';
-import joi from 'joi';
-import clientSchema from 'models/client.model';
-import RefreshToken from 'models/refreshToken.model';
-import trainerSchema from 'models/trainer.model';
-import User, { Role } from 'models/user.model';
-import { AuthType } from 'types/auth.type';
-import { UserGender, UserRole, UserType } from 'types/user.type';
-import { generateTokenResponse, getAgent } from 'utils/authHelpers';
-import resetPassword from 'models/resetPassword';
-import jwt from 'jsonwebtoken';
+import { accessSecret, clientUrl } from "./../config/vars";
+import bcrypt from "bcryptjs";
+import apiWrapper from "crud/apiWrapper";
+import create from "crud/create";
+import update from "crud/update";
+import {
+  GraphQLBoolean,
+  GraphQLError,
+  GraphQLID,
+  GraphQLNonNull,
+  GraphQLString,
+} from "graphql";
+import joi from "joi";
+import clientSchema from "models/client.model";
+import RefreshToken from "models/refreshToken.model";
+import trainerSchema from "models/trainer.model";
+import User, { Role } from "models/user.model";
+import { AuthType } from "types/auth.type";
+import { UserGender, UserRole, UserType } from "types/user.type";
+import { generateTokenResponse, getAgent } from "utils/authHelpers";
+import resetPassword from "models/resetPassword";
+import jwt from "jsonwebtoken";
 
-import { sendEmailReset } from 'utils/sendEmail';
+import { sendEmailReset } from "utils/sendEmail";
 
 const refreshSchema = {
   refreshToken: joi.string().required(),
@@ -46,8 +52,11 @@ export default {
     async (args, req) => {
       const user = await User.findOne({ email: args.email });
       if (!user || !(await user.passwordMatches(args.password)))
-        throw new GraphQLError('Email et mot de passe ne correspondent pas');
-      const idClient = user.role === 'client' ? await clientSchema.findOne({ user: user.id }) : '';
+        throw new GraphQLError("Email et mot de passe ne correspondent pas");
+      const idClient =
+        user.role === "client"
+          ? await clientSchema.findOne({ user: user.id })
+          : "";
 
       const token = await generateTokenResponse(user, req);
       return { token, user, idClient };
@@ -57,7 +66,7 @@ export default {
       email: { type: new GraphQLNonNull(GraphQLString) },
       password: { type: new GraphQLNonNull(GraphQLString) },
     },
-    { validateSchema: loginSchema },
+    { validateSchema: loginSchema }
   ),
   register: create(
     User,
@@ -76,19 +85,26 @@ export default {
         const { email, ...rest } = args;
         if (email) {
           const existEmail = await User.findOne({ email });
-          if (existEmail) throw new GraphQLError("L'adresse e-mail existe déjà");
+          if (existEmail)
+            throw new GraphQLError("L'adresse e-mail existe déjà");
         }
         return { ...rest, email };
       },
       post: async ({ result: user, request }) => {
-        const idClient = user.role === 'client' ? await clientSchema.create({ user: user.id }) : '';
-        const idTrainer = user.role === 'trainer' ? await trainerSchema.create({ user: user.id }) : '';
+        const idClient =
+          user.role === "client"
+            ? await clientSchema.create({ user: user.id })
+            : "";
+        const idTrainer =
+          user.role === "trainer"
+            ? await trainerSchema.create({ user: user.id })
+            : "";
 
         const token = await generateTokenResponse(user, request);
 
         return { token, user, idClient, idTrainer };
       },
-    },
+    }
   ),
   updateUser: update(
     User,
@@ -108,7 +124,7 @@ export default {
         if (password) query.password = await bcrypt.hash(password, 10);
         return query;
       },
-    },
+    }
   ),
   updatePassword: update(
     User,
@@ -127,26 +143,31 @@ export default {
         const user = await User.findById(args.id);
         if (email) {
           const existEmail = await User.findOne({ email });
-          if (existEmail && existEmail.email !== user?.email) throw new GraphQLError("L'adresse e-mail existe déjà");
+          if (existEmail && existEmail.email !== user?.email)
+            throw new GraphQLError("L'adresse e-mail existe déjà");
           query.email = email;
         }
         if (actualPassword && password) {
-          if (!user || !(await user.passwordMatches(actualPassword))) throw new GraphQLError(' mot de passe invalide');
+          if (!user || !(await user.passwordMatches(actualPassword)))
+            throw new GraphQLError(" mot de passe invalide");
           query.password = await bcrypt.hash(password, 10);
         }
         return query;
       },
-    },
+    }
   ),
   refresh: apiWrapper(
     async (args, req) => {
       const refreshToken = await RefreshToken.findOne({
         token: args.refreshToken,
       });
-      if (!refreshToken) throw new GraphQLError('Invalid token');
+      if (!refreshToken) throw new GraphQLError("Invalid token");
       const user = await User.findOne({ _id: refreshToken.user });
-      if (!user) throw new GraphQLError('Invalid token');
-      const idClient = user.role === 'client' ? await clientSchema.findOne({ user: user.id }) : '';
+      if (!user) throw new GraphQLError("Invalid token");
+      const idClient =
+        user.role === "client"
+          ? await clientSchema.findOne({ user: user.id })
+          : "";
       const token = await generateTokenResponse(user, req);
 
       return { token, user, idClient };
@@ -157,7 +178,7 @@ export default {
     },
     {
       validateSchema: refreshSchema,
-    },
+    }
   ),
   logout: apiWrapper(
     async (args, req) => {
@@ -166,35 +187,40 @@ export default {
       if (user) {
         await RefreshToken.deleteOne({ userId: user.id, agent });
       }
-      return 'done';
+      return "done";
     },
     GraphQLString,
     {},
-    { authorizationRoles: [Role.ADMIN] },
+    { authorizationRoles: [Role.ADMIN] }
   ),
 
   resetPassword: apiWrapper(
     async (args) => {
       const { email, token: tokenPassed } = args;
       if (tokenPassed) {
-        jwt.verify(tokenPassed, accessSecret, async (error: any, { idUser, email }: any) => {
-          if (error || !email) {
-            throw new GraphQLError('Session Expirées');
+        jwt.verify(
+          tokenPassed,
+          accessSecret,
+          async (error: any, { idUser, email }: any) => {
+            if (error || !email) {
+              throw new GraphQLError("Session Expirées");
+            }
+            const token = jwt.sign({ idUser, email }, accessSecret);
+            const resetToken = new resetPassword({ idUser });
+            const link = `${clientUrl}/RenewPassword?t=${token}`;
+            await resetToken.save();
+            sendEmailReset({ email, link });
           }
-          const token = jwt.sign({ idUser, email }, accessSecret);
-          const resetToken = new resetPassword({ idUser });
-          const link = `${clientUrl}/RenewPassword?t=${token}`;
-          await resetToken.save();
-          sendEmailReset({ email, link });
-        });
+        );
       } else {
         const user = await User.findOne({ email });
-        if (!user) throw new GraphQLError('Aucun utilisateur avec cet email');
+        if (!user) throw new GraphQLError("Aucun utilisateur avec cet email");
         const token = jwt.sign({ idUser: user?._id, email }, accessSecret);
         const resetToken = new resetPassword({ idUser: user?._id });
         const link = `${clientUrl}/RenewPassword?t=${token}`;
 
         sendEmailReset({ email, link });
+
         await resetToken.save();
         return user;
       }
@@ -207,19 +233,25 @@ export default {
     {
       validateSchema: resetSchema,
       authorizationRoles: [],
-    },
+    }
   ),
   verifToken: apiWrapper(
     async (args) => {
       const { token } = args;
-      return jwt.verify(token, accessSecret, async (error: any, { idUser }: any) => {
-        if (error || !idUser) {
-          throw new GraphQLError('Session Expirées');
+      return jwt.verify(
+        token,
+        accessSecret,
+        async (error: any, { idUser }: any) => {
+          if (error || !idUser) {
+            throw new GraphQLError("Session Expirées");
+          }
+          const tokenData: any = await resetPassword
+            .findOne({ idUser })
+            .populate("idUser");
+          if (!tokenData) throw new GraphQLError("Session Expirées");
+          return tokenData?.idUser;
         }
-        const tokenData: any = await resetPassword.findOne({ idUser }).populate('idUser');
-        if (!tokenData) throw new GraphQLError('Session Expirées');
-        return tokenData?.idUser;
-      });
+      );
     },
     UserType,
     {
@@ -228,6 +260,6 @@ export default {
     {
       validateSchema: verifSchema,
       authorizationRoles: [],
-    },
+    }
   ),
 };

@@ -1,0 +1,57 @@
+[
+  {
+    "image": ["http://localhost:3005/ReactJS/React-icon.svg"],
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "idSubCategories": "6343f2553f085531136ba6a5",
+    "dateStart": "2022-11-25T12:30:00.000+00:00",
+    "dateEnd": "2022-11-28T14:30:00.000+00:00",
+    "idTrainer": "6343f2553f085531136ba6b0",
+    "name": "ReactJs",
+    "membersNumber": 30,
+    "price": "100"
+  },
+  {
+    "image": ["http://localhost:3005/JavaScript/JavaScript-logo.png"],
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "idSubCategories": "6343f2553f085531136ba6a5",
+    "dateStart": "2022-11-30T14:00:00.000+00:00",
+    "dateEnd": "2022-12-01T16:00:00.000+00:00",
+    "idTrainer": "6343f2553f085531136ba6b0",
+    "name": "Javascript",
+    "membersNumber": 30,
+    "price": "100"
+  },
+  {
+    "image": ["http://localhost:3005/angular/angular.png"],
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "idSubCategories": "6343f2553f085531136ba6a5",
+    "dateStart": "2022-12-05T10:00:00.000+00:00",
+    "dateEnd": "2022-12-08T12:00:00.000+00:00",
+    "idTrainer": "6343f2553f085531136ba6b0",
+    "name": "Angular",
+    "membersNumber": 30,
+    "price": "120"
+  },
+  {
+    "image": ["http://localhost:3005/Unity/Unity-logo.png"],
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "idSubCategories": "6343f2553f085531136ba6a6",
+    "dateStart": "2022-12-07T08:00:00.000+00:00",
+    "dateEnd": "2022-12-09T10:00:00.000+00:00",
+    "idTrainer": "6343f2553f085531136ba6b0",
+    "name": "Unity",
+    "membersNumber": 40,
+    "price": "150"
+  },
+  {
+    "image": ["http://localhost:3005/digitalMarketing/digitalMarketing.png"],
+    "idSubCategories": "6343f2553f085531136ba6aa",
+    "idCategory": "61af52cba4eb8b88b6a2e37a",
+    "dateStart": "2022-11-05T08:00:00.000+00:00",
+    "dateEnd": "2022-11-10T10:00:00.000+00:00",
+    "idTrainer": "6343f2553f085531136ba6b0",
+    "name": "Digital Marketing",
+    "membersNumber": 50,
+    "price": "80"
+  }
+]

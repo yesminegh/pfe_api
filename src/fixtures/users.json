@@ -16,5 +16,13 @@
     "telephone": "555555555",
     "password": "Test123&",
     "role": "trainer"
+  },
+  {
+    "email": "yesmine.ghorbel@sesame.com.tn",
+    "fullName": "Yesmine Ghorbel",
+    "address": "ariana",
+    "telephone": "51200800",
+    "password": "yesmine",
+    "role": "admin"
   }
 ]

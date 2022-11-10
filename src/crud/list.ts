@@ -1,8 +1,15 @@
-import { isEmpty } from 'lodash';
-import { GraphQLList, GraphQLType, GraphQLObjectType, GraphQLInt, GraphQLResolveInfo, GraphQLString } from 'graphql';
-import joi from 'joi';
-import { Model, DocumentQuery, Document } from 'mongoose';
-import { apiWrapper, Options, LocalRequest } from './apiWrapper';
+import { isEmpty } from "lodash";
+import {
+  GraphQLList,
+  GraphQLType,
+  GraphQLObjectType,
+  GraphQLInt,
+  GraphQLResolveInfo,
+  GraphQLString,
+} from "graphql";
+import joi from "joi";
+import { Model, DocumentQuery, Document } from "mongoose";
+import { apiWrapper, Options, LocalRequest } from "./apiWrapper";
 
 const listTypes: { [key: string]: GraphQLObjectType<any, any> } = {};
 
@@ -29,12 +36,17 @@ const listValidationSchema = {
   perPage: joi.number().min(1).max(3000),
 };
 
-function list<T extends Document, Q, A extends { [key: string]: { type: GraphQLType } }, C>(
+function list<
+  T extends Document,
+  Q,
+  A extends { [key: string]: { type: GraphQLType } },
+  C
+>(
   model: Model<T, Q extends undefined ? Record<string, never> : Q>,
   type: GraphQLObjectType,
   options: Options<DocumentQuery<T[], T> & Q, A, C> & {
     args?: { [key: string]: { type: GraphQLType } };
-  } = {},
+  } = {}
 ) {
   let args = {
     page: { type: GraphQLInt },
@@ -50,8 +62,10 @@ function list<T extends Document, Q, A extends { [key: string]: { type: GraphQLT
   }
 
   async function pre(
-    a: { page: number; perPage: number; order: string; sort: number } & { [K in keyof A]: any },
-    req: LocalRequest,
+    a: { page: number; perPage: number; order: string; sort: number } & {
+      [K in keyof A]: any;
+    },
+    req: LocalRequest
   ) {
     initialArgs = a;
     const args = { ...a };
@@ -61,9 +75,11 @@ function list<T extends Document, Q, A extends { [key: string]: { type: GraphQLT
   }
 
   async function getList(
-    args: { page: number; perPage: number; sort: string; order: number } & { [K in keyof A]: any },
+    args: { page: number; perPage: number; sort: string; order: number } & {
+      [K in keyof A]: any;
+    },
     req: LocalRequest,
-    info: GraphQLResolveInfo,
+    info: GraphQLResolveInfo
   ) {
     const { perPage, page, sort: sortArgs, order, ...rest } = args;
     let count = 0;
@@ -75,18 +91,24 @@ function list<T extends Document, Q, A extends { [key: string]: { type: GraphQLT
         ? model
             .find(rest as any)
             .sort(sort)
-            .collation({ locale: 'en_US', numericOrdering: true })
+            .collation({ locale: "en_US", numericOrdering: true })
             .skip(perPage * (page - 1))
             .limit(perPage)
         : model
             .find(rest as any)
             .sort(sort)
-            .collation({ locale: 'en_US', numericOrdering: true });
+            .collation({ locale: "en_US", numericOrdering: true });
 
     return {
       count,
       data: options.post
-        ? options.post({ result: result as any, args: args as any, request: req, initialArgs, info })
+        ? options.post({
+            result: result as any,
+            args: args as any,
+            request: req,
+            initialArgs,
+            info,
+          })
         : result,
       perPage: perPage === -1 ? count : perPage,
       page,
@@ -105,7 +127,7 @@ function list<T extends Document, Q, A extends { [key: string]: { type: GraphQLT
         : listValidationSchema,
       pre,
       post: undefined,
-    } as any,
+    } as any
   );
 }
 

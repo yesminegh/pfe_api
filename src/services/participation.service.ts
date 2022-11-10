@@ -12,7 +12,7 @@ class ParticipationService {
   }
   async createClient(
     args: Partial<TrainingParticipation>,
-    clientInfo: Partial<Client>
+    clientInfo?: Partial<Client>
   ) {
     const { idClient } = args;
 
@@ -27,24 +27,47 @@ class ParticipationService {
   }
   async quantityAdjusment(
     args: Partial<TrainingParticipation>,
-    clientInfo: Partial<Client>
+    clientInfo?: Partial<Client>
   ) {
-    const { idTraining } = args;
+    const { idTraining, idClient, valid } = args;
+    let isValid = false;
     const training = await trainingModel.findById(idTraining);
-    if (!training) throw new GraphQLError("invalid id training");
-    else if (clientInfo.totalAmountPaid === training.price)
+    const client = await clientModel.findById(idClient);
+    if (!training) throw new GraphQLError("inivalid id training");
+    else if (
+      clientInfo?.totalAmountPaid === training.price ||
+      client?.totalAmountPaid === training.price ||
+      valid === true
+    ) {
       training.membersNumber = training.membersNumber - 1;
-    return training.save();
+      isValid = true;
+      if (client) {
+        client.totalAmountPaid = training.price;
+        client.save();
+      }
+      training.save();
+    } else {
+      isValid = false;
+    }
+    return isValid;
   }
   async createParticipation(args: Partial<any>, clientInfo: Partial<Client>) {
     const idClient = await this.createClient(args, clientInfo);
-    const priceAdjusment = await this.quantityAdjusment(args, clientInfo);
+    const quantityAdjusment = await this.quantityAdjusment(args, clientInfo);
     const newTrainigParticipation = new this.model({
-      priceAdjusment,
+      valid: quantityAdjusment,
       idClient,
       ...args,
     });
     return { trainigParticipation: await newTrainigParticipation.save() };
+  }
+  async updateParticipation(args: Partial<any>) {
+    const { idTraining, idClient } = args;
+    const quantityAdjusment = await this.quantityAdjusment(args);
+
+    await this.model
+      .find({ idTraining, idClient })
+      .update({ valid: quantityAdjusment });
   }
 }
 

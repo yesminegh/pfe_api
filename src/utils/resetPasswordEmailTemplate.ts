@@ -11,25 +11,165 @@ export const resetPasswordEmailTemplate = ({ link }: any) => `<tbody>
                         <div style="width: 100% !important;">
                             <div style="padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;">
 
-                                <table style="font-family:'Lato',sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
-                                    <tbody>
-                                        <tr>
-                                            <td style="overflow-wrap:break-word;word-break:break-word;padding:15px;font-family:'Lato',sans-serif;" align="left">
+                            <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;background:#ffffff;background-color:#ffffff;width:100%;border-radius:4px" bgcolor="#ffffff" width="100%"><tbody><tr>
+<td style="border-collapse:collapse;direction:ltr;font-size:0px;padding:0 0 30px;text-align:center" align="center">
+               
+                                        
+              
+              
+              <div style="margin:0px auto;max-width:604px">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;width:100%" width="100%"><tbody><tr>
+<td style="border-collapse:collapse;direction:ltr;font-size:0px;padding:45px 25px;text-align:center" align="center">
+                        
+                        <div class="m_1584076077479799462mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%" align="left" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;vertical-align:top" width="100%"><tbody><tr>
+<td align="left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;word-break:break-word">
+                                <table border="0" cellpadding="0" cellspacing="0px" role="presentation" style="border-collapse:collapse;border-spacing:0px"><tbody><tr>
+<td style="border-collapse:collapse;width:150px" width="150">
+                                        
+                                      </td>
+                                    </tr></tbody></table>
+</td>
+                            </tr></tbody></table>
+</div>
+                        
+                      </td>
+                    </tr></tbody></table>
+</div>
+              
+              
+              
+                  
+                  
+              <div style="margin:0px auto;max-width:604px">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;width:100%" width="100%"><tbody><tr>
+<td style="border-collapse:collapse;direction:ltr;font-size:0px;padding:0 25px;text-align:center" align="center">
+                        
+                        <div class="m_1584076077479799462mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%" align="left" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse:collapse"><tbody><tr>
+<td style="border-collapse:collapse;vertical-align:top;padding:0">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse" width="100%">
+<tbody><tr>
+<td align="left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;padding-top:0;padding-bottom:20px;word-break:break-word">
+                                        <div style="font-family:Open sans,arial,sans-serif;font-size:20px;font-weight:600;line-height:25px;text-align:left;color:#363a41" align="left">Bonjour Yesmine Ghorbel,</div>
+                                      </td>
+                                    </tr>
 
-                                                <table height="0px" align="center" border="0" cellpadding="0" cellspacing="0" width="100%" style="border-collapse: collapse;table-layout: fixed;border-spacing: 0;mso-table-lspace: 0pt;mso-table-rspace: 0pt;vertical-align: top;border-top: 1px solid #f9f9f9;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                                    <tbody>
-                                                        <tr style="vertical-align: top">
-                                                            <td style="word-break: break-word;border-collapse: collapse !important;vertical-align: top;font-size: 0px;line-height: 0px;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%">
-                                                                <span>&nbsp;</span>
-                                                            </td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+</tbody></table>
+</td>
+                              </tr></tbody></table>
+</div>
+                        
+                      </td>
+                    </tr></tbody></table>
+</div>
+              
+              
+              
+              <div style="margin:0px auto;max-width:604px">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;width:100%" width="100%"><tbody><tr>
+<td style="border-collapse:collapse;direction:ltr;font-size:0px;padding:0 50px 40px;text-align:left" align="left">
+                        
+                        <div class="m_1584076077479799462mj-column-px-25" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%" align="left" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;vertical-align:top" width="100%"><tbody><tr>
+<td class="m_1584076077479799462left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;padding-top:0;padding-right:0;padding-left:0;word-break:break-word">
+                                <p style="display:block;border-top:solid 3px #505050;font-size:1px;margin:0px auto;width:25px" width="25">
+                                </p>
+                                
+                              </td>
+                            </tr></tbody></table>
+</div>
+                        
+                      </td>
+                    </tr></tbody></table>
+</div>
+              
+              
+              
+              
+              <div style="margin:0px auto;max-width:604px">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;width:100%" width="100%"><tbody><tr>
+<td style="border-collapse:collapse;direction:ltr;font-size:0px;padding:0 25px 0;text-align:center" align="center">
+                        
+                        <div class="m_1584076077479799462mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%" align="left" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse:collapse"><tbody><tr>
+<td style="border-collapse:collapse;vertical-align:top;padding:0">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse" width="100%"><tbody><tr>
+<td align="left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;padding-top:0px;padding-bottom:0px;word-break:break-word">
+                                        <div style="font-family:Open sans,arial,sans-serif;font-size:16px;font-weight:600;line-height:25px;text-align:left;color:#363a41" align="left">Confirmation de récupération de mot de passe </div>
+                                      </td>
+                                    </tr></tbody></table>
+</td>
+                              </tr></tbody></table>
+</div>
+                        
+                      </td>
+                    </tr></tbody></table>
+</div>
+              
+              
+              
+              
+              <div style="margin:0px auto;max-width:604px">
+                <table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;width:100%" width="100%"><tbody><tr>
+<td style="border-collapse:collapse;direction:ltr;font-size:0px;padding:15px 50px 40px;text-align:center" align="center">
+                        
+                        <div class="m_1584076077479799462mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%" align="left" width="100%">
+                          <table border="0" cellpadding="0" cellspacing="0" role="presentation" width="100%" style="border-collapse:collapse"><tbody><tr>
+<td style="border-collapse:collapse;background-color:#fefefe;border:1px solid #dfdfdf;vertical-align:top;padding:20px 0" bgcolor="#fefefe">
+                                  <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse" width="100%">
+<tbody><tr>
+<td align="left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;word-break:break-word">
+             
+                                      </td>
+                                    </tr>
+<tr>
+<td align="left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;padding-top:0px;word-break:break-word">
+                                        <div style="font-family:Open sans,arial,sans-serif;font-size:14px;line-height:25px;text-align:left;color:#363a41" align="left">Cette opération vous attribuera un nouveau mot de passe.</div>
+                                      </td>
+                                    </tr>
+<tr>
+<td align="left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;padding-top:0px;word-break:break-word">
+                                        <div style="font-family:Open sans,arial,sans-serif;font-size:14px;line-height:25px;text-align:left;color:#363a41" align="left">Pour confirmer cette action, cliquez sur le lien suivant :
+                                         <a href="${link}" style="text-decoration:underline;color:#25b9d7;font-weight:600" target="_blank" > réinitialiser </a>
+</div>
+                                      </td>
+                                    </tr>
+</tbody></table>
+</td>
+                              </tr></tbody></table>
+</div>
+                        
+                      </td>
+                    </tr></tbody></table>
+</div>
+              
+              
+              
+              
+              <div style="margin:0px auto;max-width:604px">
+                <font color="#888888">
+                    </font><table align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;width:100%" width="100%"><tbody><tr>
+<td style="border-collapse:collapse;direction:ltr;font-size:0px;padding:0 25px 20px;text-align:center" align="center">
+                        
+                        <div class="m_1584076077479799462mj-column-per-100" style="font-size:0px;text-align:left;direction:ltr;display:inline-block;vertical-align:top;width:100%" align="left" width="100%">
+                          <font color="#888888">
+                            </font><table border="0" cellpadding="0" cellspacing="0" role="presentation" style="border-collapse:collapse;vertical-align:top" width="100%"><tbody><tr>
+<td align="left" style="border-collapse:collapse;font-size:0px;padding:10px 25px;word-break:break-word">
+                                <div style="font-family:Open sans,arial,sans-serif;font-size:14px;line-height:25px;text-align:left;color:#363a41" align="left">Si vous n'êtes pas à l'origine de cette demande, ignorez cet e-mail.</div><font color="#888888">
+                              </font></td></tr></tbody></table><font color="#888888">
+</font></div><font color="#888888">
+                        
+                      </font></td></tr></tbody></table><font color="#888888">
+</font></div><font color="#888888">
+              
+              
+              
 
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+
+                                    
+              
+            </font></td></tr></tbody></table>
 
                             </div>
                         </div>

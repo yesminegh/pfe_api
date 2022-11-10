@@ -1,24 +1,30 @@
-import { resetPasswordEmailTemplate } from './resetPasswordEmailTemplate';
-export const sendEmailReset = ({ email, link }: { email: string; link: string }) => {
-  const nodemailer = require('nodemailer');
+import { resetPasswordEmailTemplate } from "./resetPasswordEmailTemplate";
+export const sendEmailReset = ({
+  email,
+  link,
+}: {
+  email: string;
+  link: string;
+}) => {
+  const nodemailer = require("nodemailer");
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: "gmail",
     auth: {
-      user: 'guidezephyr@gmail.com',
-      pass: '@dmin123&',
+      user: "yesmine.ghorbel@sesame.com.tn",
+      pass: "sesame129",
     },
   });
   const mailOptions = {
-    from: 'guidezephyr@gmail.com', // sender address
+    from: "yesmine.ghorbel@sesame.com.tn", // sender address
     to: email, // list of receivers
-    subject: 'Votre compte GuideZephir', // Subject line
+    subject: "Votre compte", // Subject line
     html: resetPasswordEmailTemplate({
       link,
     }),
     attachments: [
       {
-        filename: 'logoZephirWhite.svg',
-        path: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2FPackfast.livraison%2F&psig=AOvVaw34s4G68EitmjGeUBkDfGbk&ust=1644918950160000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODY-9_2_vUCFQAAAAAdAAAAABAD',
+        filename: "logoZephirWhite.svg",
+        path: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.facebook.com%2FPackfast.livraison%2F&psig=AOvVaw34s4G68EitmjGeUBkDfGbk&ust=1644918950160000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCODY-9_2_vUCFQAAAAAdAAAAABAD",
       },
     ], // plain text body
   };
@@ -26,7 +32,7 @@ export const sendEmailReset = ({ email, link }: { email: string; link: string })
     if (err) {
       console.log(err);
     } else {
-      console.log('Email Sended');
+      console.log("Email Sended");
     }
   });
 };

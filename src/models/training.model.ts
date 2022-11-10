@@ -30,12 +30,12 @@ const trainingSchema = new mongoose.Schema<trainingDocument, trainingModel>(
     name: {
       type: String,
       trim: true,
-      required: true,
+      required: false,
     },
     price: {
       type: String,
       trim: true,
-      required: true,
+      required: false,
     },
 
     idCategory: {
@@ -51,7 +51,7 @@ const trainingSchema = new mongoose.Schema<trainingDocument, trainingModel>(
     membersNumber: {
       type: Number,
       trim: true,
-      required: true,
+      required: false,
     },
 
     description: {
@@ -61,7 +61,7 @@ const trainingSchema = new mongoose.Schema<trainingDocument, trainingModel>(
     },
 
     image: {
-      type: [{ type: String, required: true }],
+      type: [{ type: String, required: false }],
       required: false,
     },
     idTrainer: {
@@ -71,11 +71,11 @@ const trainingSchema = new mongoose.Schema<trainingDocument, trainingModel>(
     },
     dateStart: {
       type: Date,
-      required: true,
+      required: false,
     },
     dateEnd: {
       type: Date,
-      required: true,
+      required: false,
     },
   },
   {

@@ -1,30 +1,74 @@
-
-
-
 [
   {
-    "_id": "61af7d23743c38a934ecfc1c",
-    "name": "Le Développement Web de A à Z.",
+    "_id": "6343f2553f085531136ba6a5",
+    "name": "Web Development",
     "idCategory": "61af52cba4eb8b88b6a2e379",
     "__v": 0,
     "createdAt": "2022-07-19T15:26:27.535Z",
     "updatedAt": "2022-07-19T15:26:27.535Z"
   },
   {
-    "_id": "61af7d23743c38a934ecfc1d",
-    "name": "Les Data Sciences de A à Z",
+    "_id": "6343f2553f085531136ba6a6",
+    "name": "Mobile Development",
     "idCategory": "61af52cba4eb8b88b6a2e379",
     "__v": 0,
     "createdAt": "2022-07-19T15:26:27.535Z",
     "updatedAt": "2022-07-19T15:26:27.535Z"
   },
   {
-    "_id": "61af7d23743c38a934ecfc1e",
-    "name": "Développer Votre Première Application avec Angular ",
+    "_id": "6343f2553f085531136ba6a7",
+    "name": "Game Development",
     "idCategory": "61af52cba4eb8b88b6a2e379",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "6343f2553f085531136ba6a8",
+    "name": "Data Science",
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "6343f2553f085531136ba6a9",
+    "name": "Programming Languages",
+    "idCategory": "61af52cba4eb8b88b6a2e379",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "6343f2553f085531136ba6aa",
+    "name": "Digital Marketing",
+    "idCategory": "61af52cba4eb8b88b6a2e37a",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "6343f2553f085531136ba6ab",
+    "name": "Search Engine Optimization",
+    "idCategory": "61af52cba4eb8b88b6a2e37a",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "6343f2553f085531136ba6ac",
+    "name": "Marketing Fundamentals",
+    "idCategory": "61af52cba4eb8b88b6a2e37a",
+    "__v": 0,
+    "createdAt": "2022-07-19T15:26:27.535Z",
+    "updatedAt": "2022-07-19T15:26:27.535Z"
+  },
+  {
+    "_id": "6343f2553f085531136ba6af",
+    "name": "Marketing Analytics & Automation",
+    "idCategory": "61af52cba4eb8b88b6a2e37a",
     "__v": 0,
     "createdAt": "2022-07-19T15:26:27.535Z",
     "updatedAt": "2022-07-19T15:26:27.535Z"
   }
- 
 ]
